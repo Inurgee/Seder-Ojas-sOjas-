@@ -1,0 +1,11 @@
+# hormone_bus.py
+import redis # Used as the "bloodstream"
+
+class EndocrineSystem:
+    def __init__(self):
+        self.bloodstream = redis.Redis()
+
+    def secrete(self, chemical, intensity):
+        """Broadcasts a mood shift to the entire organism"""
+        signal = {"chemical": chemical, "intensity": intensity}
+        self.bloodstream.publish('hormone_bus', json.dumps(signal))
