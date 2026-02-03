@@ -1,0 +1,18 @@
+// somatic_layer/src/core.cpp
+class SomaticCore {
+    float glucose_level = 100.0; [span_7](start_span)// Energy reserves[span_7](end_span)
+    float fever_threshold = 85.0; [span_8](start_span)// Excess heat[span_8](end_span)
+
+public:
+    void pulse_check() {
+        if (glucose_level < 10.0) {
+            [span_9](start_span)// High-priority stress trigger[span_9](end_span)
+            trigger_cortisol_surge(); 
+        }
+    }
+
+    void flinch_response() {
+        [span_10](start_span)// Sub-millisecond isolation to prevent hardware necrosis[span_10](end_span)
+        std::cout << "Flinch Response: Power-gate isolation active." << std::endl;
+    }
+};
