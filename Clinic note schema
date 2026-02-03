@@ -1,0 +1,10 @@
+{
+  "day": 42,
+  "observation": "Elevated CORT due to Digital Sepsis",
+  "intervention": [
+    "Localized inflammation",
+    "Adrenal Surge"
+  ],
+  "outcome": "System stabilized; apoptosis of PID 502",
+  "post_op": "Scheduled 20-minute REM cycle"
+}
