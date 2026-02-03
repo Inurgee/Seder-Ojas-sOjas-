@@ -1,0 +1,9 @@
+# adrenal_surge.sh (Linux)
+# Redirecting all resources to the Immune Layer during Digital Sepsis
+# Increase priority for the Rust Immune service
+renice -n -20 -p $(pgrep immune_layer)
+
+# Throttle Vestigial UI processes using GABA-logic (High Niceness)
+renice -n 19 -p $(pgrep ui_desktop)
+
+echo "Adrenal Surge active: Resources redirected to Vital stability."
