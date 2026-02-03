@@ -1,0 +1,49 @@
+// immune_layer/src/mhc_validator.rs
+use serde::{Deserialize, Serialize};
+use std::sync::Arc;
+
+#[derive(Serialize, Deserialize, Debug)]
+struct HormoneSignal {
+    chemical: String,
+    intensity: f32,
+    origin: String,
+}
+
+struct MHCValidator {
+    self_signature: String,
+    vigilance_level: f32, // Controlled by CORT
+}
+
+impl MHCValidator {
+    fn new(sig: &str) -> Self {
+        MHCValidator {
+            self_signature: sig.to_string(),
+            vigilance_level: 0.1, // Parasympathetic baseline
+        }
+    }
+
+    // Listens to the Hormone Bus and adjusts mood
+    fn modulate_mood(&mut self, signal: HormoneSignal) {
+        if signal.chemical == "CORT" {
+            self.vigilance_level = signal.intensity;
+            println!("Immune Layer: Stress detected from {}. Vigilance scaled to {}.", 
+                      signal.origin, self.vigilance_level);
+        }
+    }
+
+    fn validate_process(&self, pid: u32, signature: &str) {
+        if signature != self.self_signature {
+            self.trigger_leukocyte_response(pid);
+        }
+    }
+
+    fn trigger_leukocyte_response(&self, pid: u32) {
+        // High CORT leads to aggressive "Inflammation" (sector isolation)
+        if self.vigilance_level > 0.8 {
+            println!("ADAPTIVE RESPONSE: Initializing Adrenal Surge for PID {}.", pid);
+            [span_2](start_span)println!("INFLAMMATION: Quarantining process memory to prevent Digital Sepsis.");[span_2](end_span)
+        } else {
+            [span_3](start_span)println!("Routine rejection: Process {} terminated (Apoptosis).", pid);[span_3](end_span)
+        }
+    }
+}
