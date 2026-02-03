@@ -1,0 +1,31 @@
+def _policy_calm(policy, sleep_pressure):
+    policy["global"] = {
+        "new_work_intake": "normal",
+        "log_verbosity": "normal",
+    }
+
+    policy["immune_layer"] = {
+        "scan_aggressiveness": "baseline",
+        "auto_quarantine": False,
+    }
+
+    policy["somatic_layer"] = {
+        "flinch_sensitivity": "normal",
+        "thermal_margin": "standard",
+    }
+
+    policy["cognitive_layer"] = {
+        "rem_enforced": sleep_pressure > 0.6,
+        "background_learning": True,
+        "max_uptime_before_forced_rem_s": 3600,
+    }
+
+    policy["substrate"] = {
+        "ui_priority": "normal",
+        "batch_jobs_priority": "normal",
+    }
+
+    policy["spore_protocol"] = {
+        "myelination_rate": "normal",
+        "spore_snapshot_enabled": False,
+    }
