@@ -1,0 +1,30 @@
+class Homeostasis:
+    def __init__(self, endocrine, sensors, memory):
+        self.endocrine = endocrine
+        self.sensors = sensors      # vitals, hormones, sleep, threat
+        self.memory = memory        # recent events, epigenetic store
+        self.current_state = SystemState.CALM
+
+    def tick(self):
+        vitals = self.sensors.read_vitals()
+        hormones = self.sensors.read_hormones()
+        sleep_pressure = self.sensors.read_sleep_pressure()
+        threat_score = self.sensors.read_threat_score()
+        recent_events = self.memory.recent_events()
+
+        new_state = decide_state(vitals, hormones, sleep_pressure, threat_score, recent_events)
+
+        if new_state != self.current_state:
+            self.current_state = new_state
+            target_profile = STATE_HORMONE_PROFILE[new_state]
+            self._nudge_hormones(hormones, target_profile)
+            policy = derive_policy(new_state, sleep_pressure, threat_score)
+            broadcast_state(self.endocrine, new_state, policy)
+            self.memory.log_clinical_note(new_state, vitals, hormones, sleep_pressure, threat_score)
+
+    def _nudge_hormones(self, current, target):
+        for chem, target_level in target.items():
+            delta = target_level - current.get(chem, 0.0)
+            if abs(delta) > 0.1:
+                intensity = min(1.0, abs(delta))
+                self.endocrine.secrete(chem, intensity)
