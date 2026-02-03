@@ -1,0 +1,34 @@
+def _policy_recovery(policy):
+    policy["global"] = {
+        "new_work_intake": "minimal",
+        "log_verbosity": "high",
+        "incident_mode": False,
+    }
+
+    policy["immune_layer"] = {
+        "scan_aggressiveness": "medium",
+        "auto_quarantine": True,
+        "mhc_strictness": "elevated",
+    }
+
+    policy["somatic_layer"] = {
+        "flinch_sensitivity": "high",
+        "thermal_margin": "wide",
+        "cortisol_surge_enabled": False,  # avoid more stress
+    }
+
+    policy["cognitive_layer"] = {
+        "rem_enforced": True,
+        "background_learning": False,
+        "max_uptime_before_forced_rem_s": 900,
+    }
+
+    policy["substrate"] = {
+        "ui_priority": "low",
+        "batch_jobs_priority": "low",
+    }
+
+    policy["spore_protocol"] = {
+        "myelination_rate": "medium",
+        "spore_snapshot_enabled": True,  # record post-op stable state
+    }
