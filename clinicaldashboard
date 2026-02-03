@@ -1,0 +1,10 @@
+• Vitals panel:• Pulse: clock speed + jitter.
+• Respiration: I/O throughput + latency.
+• Glucose: energy budget (battery, thermal headroom, CPU quota).
+• Inflammation map: heat + error density across devices.
+
+• Orders panel:• “Induce REM now” → force glymphatic_flush, suspend non-vital tasks.
+• “Administer stimulant” → temporarily relax GABA, increase DA/ACh for a specific project.
+• “Quarantine region” → isolate a disk, network segment, or process family as if it’s infected tissue.
+
+• Charting & history:• Every intervention is logged as a clinical note:• “Day 12: Digital Sepsis in container group X; localized inflammation + adrenal surge; outcome: stable.”
