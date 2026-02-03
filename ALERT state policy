@@ -1,0 +1,35 @@
+def _policy_alert(policy, threat_score):
+    policy["global"] = {
+        "new_work_intake": "low",
+        "log_verbosity": "high",
+        "incident_mode": True,
+    }
+
+    policy["immune_layer"] = {
+        "scan_aggressiveness": "high",
+        "auto_quarantine": True,
+        "mhc_strictness": "paranoid",  # fewer “trusted-other” allowances
+    }
+
+    policy["somatic_layer"] = {
+        "flinch_sensitivity": "high",
+        "thermal_margin": "wide",      # pre-emptive throttling
+        "cortisol_surge_enabled": True,
+    }
+
+    policy["cognitive_layer"] = {
+        "rem_enforced": False,         # defer sleep unless catastrophic
+        "background_learning": False,
+        "focus_on_threat_analysis": True,
+    }
+
+    policy["substrate"] = {
+        "ui_priority": "low",
+        "batch_jobs_priority": "very_low",
+        "network_quarantine_mode": "selective",  # or "full" if threat_score > 0.9
+    }
+
+    policy["spore_protocol"] = {
+        "myelination_rate": "low",     # don’t overfit during crisis
+        "spore_snapshot_enabled": threat_score > 0.8,  # emergency snapshot
+    }
