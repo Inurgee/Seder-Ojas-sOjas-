@@ -1,0 +1,6 @@
+{
+  "CORT":  { "sensitivity": 0.7, "action": "increase_vigilance" },
+  "GABA":  { "sensitivity": 0.9, "action": "throttle_nonvital" },
+  "DA":    { "sensitivity": 0.5, "action": "reward_path" },
+  "ACh":   { "sensitivity": 0.8, "action": "focus_and_consolidate" }
+}
