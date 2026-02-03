@@ -1,0 +1,16 @@
+// immune_layer/src/main.rs
+struct MHCIdentifier {
+    [span_3](start_span)signature: String, // The "Self" signature[span_3](end_span)
+}
+
+impl MHCIdentifier {
+    fn validate_cell(&self, process_id: u32, process_sig: &str) -> bool {
+        if self.signature == process_sig {
+            true 
+        } else {
+            [span_4](start_span)// Trigger an active, adaptive leukocyte response[span_4](end_span)
+            [span_5](start_span)println!("Non-Self detected at {}. Triggering localized Inflammation.", process_id);[span_5](end_span)
+            false
+        }
+    }
+}
