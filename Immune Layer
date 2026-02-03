@@ -1,0 +1,17 @@
+// immune_layer.rs
+struct MHCIdentifier {
+    signature: String,
+}
+
+impl MHCIdentifier {
+    fn validate_cell(&self, process_id: u32, process_sig: &str) -> bool {
+        if self.signature == process_sig {
+            println!("Process {} verified as 'Self'.", process_id);
+            true
+        } else {
+            // Trigger Active Leukocyte Response
+            println!("Alert: Non-Self detected at {}. Initiating Adrenal Surge.", process_id);
+            false
+        }
+    }
+}
