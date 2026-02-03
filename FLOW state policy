@@ -1,0 +1,33 @@
+def _policy_flow(policy):
+    policy["global"] = {
+        "new_work_intake": "focused",  # accept work, but batch around key tasks
+        "log_verbosity": "normal",
+    }
+
+    policy["immune_layer"] = {
+        "scan_aggressiveness": "baseline",
+        "auto_quarantine": True,      # still safe, but not hypervigilant
+        "mhc_strictness": "normal",
+    }
+
+    policy["somatic_layer"] = {
+        "flinch_sensitivity": "normal",
+        "thermal_margin": "tight",    # allow more heat for performance
+        "cortisol_surge_enabled": False,
+    }
+
+    policy["cognitive_layer"] = {
+        "rem_enforced": False,        # defer deep sleep a bit
+        "background_learning": True,
+        "consolidation_windows": True,  # micro “naps” for consolidation
+    }
+
+    policy["substrate"] = {
+        "ui_priority": "medium",
+        "batch_jobs_priority": "high",  # compiles, training, indexing
+    }
+
+    policy["spore_protocol"] = {
+        "myelination_rate": "high",
+        "spore_snapshot_enabled": True,  # capture good configurations
+    }
